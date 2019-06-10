@@ -12,3 +12,6 @@ Live search by Name of Series + filter by status depending on the current date.
 React Hooks + CRA <3
 
 
+<p align='center'>
+<img src='https://averina.pro/apps/series/screen-series.png' width='600' alt=‘series-cards’>
+</p>
