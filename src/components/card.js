@@ -1,39 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 import { Label } from "semantic-ui-react";
-import { format, isAfter, isBefore } from "date-fns";
 
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 
-export const SerieCard = ({
-  name = "Name of Series",
-  dateStart,
-  dateEnd,
-  description
-}) => {
-  const today = format(new Date(), "YYYY-MM-DD");
+export const SerieCard = ({ name, status, description }) => {
+  const [color, setColor] = React.useState("grey");
 
-  console.log(today);
-  console.log(dateStart);
-  console.log(dateEnd);
-  const afterEnd = isAfter(new Date(), new Date(dateEnd));
-  //const beforeEnd = isBefore(new Date(), new Date(dateEnd));
-  //const afterStart = isAfter(new Date(), new Date(dateStart));
-  const beforeStart = isBefore(new Date(), new Date(dateStart));
-
-  const activeness = () => {
-    if (beforeStart) {
-      return "Upcoming";
-    } else if (afterEnd) {
-      return "Finished";
-    } else {
-      return "Live";
-    }
-  };
-
-  const active = activeness();
+  React.useEffect(() => {
+    const statusColor = status => {
+      switch (status) {
+        case "Upcoming":
+          setColor("pink");
+          break;
+        case "Finished":
+          setColor("grey");
+          break;
+        case "Live":
+          setColor("teal");
+          break;
+        default:
+          setColor("yellow");
+      }
+    };
+    statusColor(status);
+  }, [status]);
 
   return (
     <Card>
@@ -51,8 +44,8 @@ export const SerieCard = ({
         <Typography component="p">{description}</Typography>
 
         <br />
-        <Label as="a" color="teal" tag>
-          {active}
+        <Label as="a" color={color} tag>
+          {status}
         </Label>
       </CardContent>
     </Card>
@@ -61,7 +54,7 @@ export const SerieCard = ({
 
 export const Card = styled.div`
   margin: 1rem;
-  width: 300px;
+  width: 240px;
   display: flex;
   flex-flow: column;
   flex-shrink: 0;
