@@ -9,7 +9,7 @@ export const CardList = ({ data }) => {
       key={item.id}
       name={item.name}
       status={item.status}
-      description="sfsd"
+      description="Unique series of tournaments on the Earth"
     />
   ));
   return (

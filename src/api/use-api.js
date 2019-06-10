@@ -60,6 +60,3 @@ export const useTournamentsApi = () => {
 
   return { data, isLoading, isError };
 };
-
-//const beforeEnd = isBefore(new Date(), new Date(dateEnd));
-//const afterStart = isAfter(new Date(), new Date(dateStart));

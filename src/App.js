@@ -3,7 +3,6 @@ import styled from "styled-components";
 import ButtonAppBar from "./ui/menu";
 import SimpleContainer from "./ui/simple-container";
 import Typography from "@material-ui/core/Typography";
-import { SerieCard } from "./components/card";
 import { Filter } from "./components/filter";
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
           </Typography>
         </TitleContainer>
 
-        <SerieCard description="Amazing competitions in 5 EU countries" />
         <Filter />
       </SimpleContainer>
     </div>

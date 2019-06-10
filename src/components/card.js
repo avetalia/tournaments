@@ -7,17 +7,16 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 
 export const SerieCard = ({ name, status, description }) => {
-  const [color, setColor] = React.useState("red");
+  const [color, setColor] = React.useState("grey");
 
   React.useEffect(() => {
     const statusColor = status => {
-      console.log(status);
       switch (status) {
         case "Upcoming":
           setColor("pink");
           break;
         case "Finished":
-          setColor("lightgrey");
+          setColor("grey");
           break;
         case "Live":
           setColor("teal");
@@ -55,7 +54,7 @@ export const SerieCard = ({ name, status, description }) => {
 
 export const Card = styled.div`
   margin: 1rem;
-  width: 300px;
+  width: 240px;
   display: flex;
   flex-flow: column;
   flex-shrink: 0;

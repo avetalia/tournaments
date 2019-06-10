@@ -8,10 +8,7 @@ function SimpleContainer({ children }) {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Typography
-          component="div"
-          style={{ backgroundColor: "#fff", height: "100vh" }}
-        >
+        <Typography component="div" style={{ backgroundColor: "#fff" }}>
           {children}
         </Typography>
       </Container>
